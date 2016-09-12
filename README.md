@@ -14,7 +14,7 @@ Here's what you need to get this working:
  ## Setup
 
  ```
-$ docker run -d \
+$ docker run -t -d \
   --name tc-agent-mgr \
   -e TC_URL=https://your-ci.your-domain.com \
   -e TC_USER=jsmith \
