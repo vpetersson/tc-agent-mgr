@@ -109,6 +109,8 @@ def main():
 
         if len(enabled_agents) < settings.TC_MAX_AGENTS and len(unauthorized_agents) > 0:
             for agent in unauthorized_agents:
+                if settings.AGENT_WHITELIST_STRING and not settings.AGENT_WHITELIST_STRING.lower() in agent['name'].lower():
+                        break
                 print 'Authorizing new build agent...'
                 authorize_unauthorize_agent(agent['id'], authorize=True)
         else:

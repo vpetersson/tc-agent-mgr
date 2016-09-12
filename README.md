@@ -22,10 +22,13 @@ $ docker run -d \
   vpetersson/tc-agent-mgr
 ```
 
-If you have a paid license of TeamCity, you may also specify `TC_MAX_AGENT`, but this will default to 3 (which is the limit for the free license).
+### Optional Settings
+
+* `TC_MAX_AGENT`:  This will default to 3 (which is the limit for the free license).
+* `AGENT_WHITELIST_STRING`: Set this if you want to only approve agents with this string in the name.
 
 ## Security Notes
 
-Please note that there is not a whole lot of security considerations in here. Any agent trying to register to your TeamCity server will automatically get approved. Don't use this unless you understand that risk.
+Please note that there is not a whole lot of security considerations in here. Any agent trying to register to your TeamCity server will automatically get approved (unless `AGENT_WHITELIST_STRING` is set). Don't use this unless you understand that risk.
 
 You may also want to create a new TeamCity group and only grant permission to the role 'Agent manager'. You can then make your new a member of this group and this group only.
