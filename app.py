@@ -92,7 +92,7 @@ def delete_inactive_agents():
         inactive_agents.append(agent)
 
     for agent in inactive_agents:
-        print 'Deleting agent {}.'.format(agent['name'])
+        print 'Deleting agent {}...'.format(agent['name'])
         delete_agent(agent['id'])
 
 
@@ -119,7 +119,7 @@ def main():
             for agent in unauthorized_agents:
                 if settings.AGENT_WHITELIST_STRING and not settings.AGENT_WHITELIST_STRING.lower() in agent['name'].lower():
                         break
-                print 'Authorizing new build agent...'
+                print 'Authorizing new build agent {}...'.format(agent['name'])
                 authorize_unauthorize_agent(agent['id'], authorize=True)
         else:
             print 'Nothing to do. Going to sleep.'
