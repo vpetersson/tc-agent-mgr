@@ -22,3 +22,7 @@ $ docker run -d \
 ```
 
 If you have a paid license of TeamCity, you may also specify `TC_MAX_AGENT`, but this will default to 3 (which is the limit for the free license).
+
+## Security Note
+
+Please note that there is not a whole lot of security considerations in here. Any agent trying to register to your TeamCity server will automatically get approved. Don't use this unless you understand that risk.
