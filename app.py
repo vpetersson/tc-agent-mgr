@@ -83,8 +83,16 @@ def delete_agent(agent_id):
 
 
 def delete_inactive_agents():
-    inactive_agents = query_tc_for_agents(connected=False, authorized=False)
+    inactive_agents = []
+
+    for agent in query_tc_for_agents(connected=False, authorized=False):
+        inactive_agents.append(agent)
+
+    for agent in query_tc_for_agents(connected=False, authorized=True):
+        inactive_agents.append(agent)
+
     for agent in inactive_agents:
+        print 'Deleting agent {}.'.format(agent['name'])
         delete_agent(agent['id'])
 
 
