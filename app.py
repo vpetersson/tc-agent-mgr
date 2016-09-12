@@ -91,6 +91,8 @@ def delete_inactive_agents():
 def main():
     if not is_ready():
         print 'Unable to start due to missing environment variables.'
+    else:
+        print 'All set. Starting up.'
 
     while True:
         delete_inactive_agents()

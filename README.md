@@ -15,14 +15,17 @@ Here's what you need to get this working:
 
  ```
 $ docker run -d \
+  --name tc-agent-mgr \
   -e TC_URL=https://your-ci.your-domain.com \
   -e TC_USER=jsmith \
   -e TC_PASS=SecretPassword \
-  vpeterssson\tc-agent-mgr
+  vpetersson/tc-agent-mgr
 ```
 
 If you have a paid license of TeamCity, you may also specify `TC_MAX_AGENT`, but this will default to 3 (which is the limit for the free license).
 
-## Security Note
+## Security Notes
 
 Please note that there is not a whole lot of security considerations in here. Any agent trying to register to your TeamCity server will automatically get approved. Don't use this unless you understand that risk.
+
+You may also want to create a new TeamCity group and only grant permission to the role 'Agent manager'. You can then make your new a member of this group and this group only.
